@@ -1,6 +1,10 @@
 class Task
-  def initialize
-    @completed = false
+  attr_accessor :size
+
+  def initialize(options = {})
+    # @completed = false
+    @completed = options[:completed]
+    @size = options[:size]
   end
 
   def complete?
