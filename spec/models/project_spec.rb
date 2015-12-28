@@ -15,5 +15,11 @@ RSpec.describe Project do
       #expect(project.done?).to be_falsy
       expect(project).not_to be_done
     end
+
+    it "marks a project done if its tasks are done" do
+      project.tasks << task
+      task.mark_completed
+      expect(project).to be_done
+    end
   end
 end
