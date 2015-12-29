@@ -5,12 +5,12 @@ class Task
     # @completed = false
     @completed = options[:completed]
     @size = options[:size]
-
+    @completed_at = options[:completed_at]
   end
 
   def complete?
     # @completed
-    completed
+    completed || completed_at.present?
   end
 
   def mark_completed(date = nil)
@@ -21,7 +21,9 @@ class Task
   def part_of_velocity?
     # @completed
     # @completed && (@completed_at > 3.weeks.ago)
-    completed && (completed_at > 3.weeks.ago)
+    # completed && (completed_at > 3.weeks.ago)
+    return false unless complete?
+    completed_at > 3.weeks.ago
   end
 
   def points_toward_velocity
