@@ -41,7 +41,8 @@ class Project
   end
 
   def on_schedule?
-    (Date.today + projected_days_remaining) < @due_date
+    return false if projected_days_remaining.nan?
+    (Date.today + projected_days_remaining) <= @due_date
   end
 
   def self.velocity_length_in_days
