@@ -5,6 +5,7 @@ class Task
     # @completed = false
     @completed = options[:completed]
     @size = options[:size]
+
   end
 
   def complete?
