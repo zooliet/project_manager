@@ -24,7 +24,8 @@ class Task
     # @completed && (@completed_at > 3.weeks.ago)
     # completed && (completed_at > 3.weeks.ago)
     return false unless complete?
-    completed_at > 3.weeks.ago
+    # completed_at > 3.weeks.ago
+    completed_at > Project.velocity_length_in_days.days.ago
   end
 
   def points_toward_velocity
