@@ -15,12 +15,12 @@ class Task
     @completed = true
   end
 
-  # def part_of_velocity?
-  #   @completed
-  # end
+  def part_of_velocity?
+    @completed
+  end
 
-  # def points_toward_velocity
-  #   if @completed then size else 0 end
-  # end
+  def points_toward_velocity
+    if @completed then size else 0 end
+  end
 
 end
