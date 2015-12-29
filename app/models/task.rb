@@ -11,16 +11,19 @@ class Task
     @completed
   end
 
-  def mark_completed
+  def mark_completed(date = nil)
     @completed = true
+    @completed_at = (date || Time.current)
   end
 
   def part_of_velocity?
-    @completed
+    # @completed
+    @completed && (@completed_at > 3.weeks.ago)
   end
 
   def points_toward_velocity
-    if @completed then size else 0 end
+    # if @completed then size else 0 end
+    if part_of_velocity? then size else 0 end
   end
 
 end
