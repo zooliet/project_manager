@@ -5,7 +5,8 @@ class Task
     # @completed = false
     @completed = options[:completed]
     @size = options[:size]
-    @completed_at = options[:completed_at]
+    # @completed_at = options[:completed_at]
+    mark_completed(options[:completed_at]) if options[:completed_at]
   end
 
   def complete?
