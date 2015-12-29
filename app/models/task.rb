@@ -1,5 +1,5 @@
 class Task
-  attr_accessor :size
+  attr_accessor :size, :completed_at, :completed
 
   def initialize(options = {})
     # @completed = false
@@ -8,7 +8,8 @@ class Task
   end
 
   def complete?
-    @completed
+    # @completed
+    completed
   end
 
   def mark_completed(date = nil)
@@ -18,7 +19,8 @@ class Task
 
   def part_of_velocity?
     # @completed
-    @completed && (@completed_at > 3.weeks.ago)
+    # @completed && (@completed_at > 3.weeks.ago)
+    completed && (completed_at > 3.weeks.ago)
   end
 
   def points_toward_velocity
